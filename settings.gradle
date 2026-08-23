@@ -1,0 +1,5 @@
+
+rootProject.name = 'monitorNbn'
+
+include( 'shared', 'modemStatus', 'dataLoader', 'nbnMonitorWar')
+
