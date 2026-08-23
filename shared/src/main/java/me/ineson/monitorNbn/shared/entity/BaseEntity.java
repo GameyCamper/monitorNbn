@@ -1,6 +1,7 @@
 package me.ineson.monitorNbn.shared.entity;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 
 /**
  * @author peter
@@ -8,6 +9,7 @@ import org.bson.types.ObjectId;
  */
 public abstract class BaseEntity {
 
+	@Id
 	private ObjectId id;
 
 	public ObjectId getId() {

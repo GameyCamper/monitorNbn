@@ -73,8 +73,8 @@ class FileReaderSpecification extends Specification {
             testSection1.firstLineNumber == 1
             testSection1.lastLineNumber > 50
             testSection1.lines != null
-            testSection1.lines.size > 50
-            testSection1.lines.size < 70
+            testSection1.lines.size() > 50
+            testSection1.lines.size() < 70
             testSection2 == null;
 
         cleanup:
@@ -104,16 +104,16 @@ class FileReaderSpecification extends Specification {
             testSection1.firstLineNumber == 1
             testSection1.lastLineNumber > 50
             testSection1.lines != null
-            testSection1.lines.size > 50
-            testSection1.lines.size < 70
+            testSection1.lines.size() > 50
+            testSection1.lines.size() < 70
             testSection2 != null;
             testSection2.filePosition > 1000
             testSection2.firstLineNumber > 50
             testSection2.firstLineNumber < 70
             testSection2.lastLineNumber > 100
             testSection2.lines != null
-            testSection2.lines.size > 50
-            testSection2.lines.size < 70
+            testSection2.lines.size() > 50
+            testSection2.lines.size() < 70
 
         cleanup:
             if( ! Objects.isNull( fileReader)) {

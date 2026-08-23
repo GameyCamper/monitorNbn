@@ -3,11 +3,12 @@
  */
 package me.ineson.monitorNbn.shared.dao;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
 import java.util.Iterator;
@@ -71,7 +72,7 @@ class DailySummaryDaoTest {
     	Set<String>names = mongoTemplate.getCollectionNames();
     	LOG.info("Collections: {}", String.join(",", names));
     	MongoCollection<Document>collection = mongoTemplate.getCollection(DailySummaryDao.COLLECTION_NAME);
-    	LOG.info("document count: {}", collection.count());
+    	LOG.info("document count: {}", collection.countDocuments());
     	
     	StringBuilder string = new StringBuilder();
     	collection.listIndexes().forEach((Consumer<? super Document>) (Document document) -> {
@@ -115,7 +116,7 @@ class DailySummaryDaoTest {
         //     and record can be read from the DB
         DailySummary returnedDailySummary =  searchResultsIterator.next();
         assertNotNull(returnedDailySummary);
-        assertFalse("Has more than one result", searchResultsIterator.hasNext());
+        assertFalse(searchResultsIterator.hasNext(), "Has more than one result");
 
         //     and record contents match.
         assertEquals(date, returnedDailySummary.getDate());
@@ -159,7 +160,7 @@ class DailySummaryDaoTest {
         //     and record can be read from the DB
         DailySummary returnedDailySummary =  searchResultsIterator.next();
         assertNotNull(returnedDailySummary);
-        assertFalse("Has more than one result", searchResultsIterator.hasNext());
+        assertFalse(searchResultsIterator.hasNext(), "Has more than one result");
 
         //     and record contents match.
         assertEquals(date, returnedDailySummary.getDate());
@@ -248,7 +249,7 @@ class DailySummaryDaoTest {
         Iterator<DailySummary> searchResultsIterator = searchResults.iterator();
         DailySummary returnedRecord = searchResultsIterator.next();
         assertNotNull(returnedRecord);
-        assertFalse("Has more than one result", searchResultsIterator.hasNext());
+        assertFalse(searchResultsIterator.hasNext(), "Has more than one result");
         assertEquals(Integer.valueOf(1), returnedRecord.getOutageCount());
     }
 
@@ -273,7 +274,7 @@ class DailySummaryDaoTest {
         // Then: The saved record is found.
         Iterable<DailySummary> searchResults = dao.findAll();
         assertNotNull(searchResults);
-        assertTrue("Has a result", searchResults.iterator().hasNext());
+        assertTrue(searchResults.iterator().hasNext(), "Has a result");
     }
 
     @Test
@@ -316,7 +317,7 @@ class DailySummaryDaoTest {
         assertNotNull(result1);
         DailySummary result2 = searchResultsIterator.next();
         assertNotNull(result2);
-        assertFalse("Has more than two result", searchResultsIterator.hasNext());
+        assertFalse(searchResultsIterator.hasNext(), "Has more than two result");
 
         // and the first return record is the second one that was saved.
         LOG.debug("result1: {}", result1);
@@ -348,7 +349,7 @@ class DailySummaryDaoTest {
         // Then: The saved record is found.
         Iterable<DailySummary> searchResults = dao.findAll();
         assertNotNull(searchResults);
-        assertFalse("No results are found", searchResults.iterator().hasNext());
+        assertFalse(searchResults.iterator().hasNext(), "No results are found");
 	}
 
 }

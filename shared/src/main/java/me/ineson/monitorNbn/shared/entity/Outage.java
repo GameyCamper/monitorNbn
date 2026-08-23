@@ -2,6 +2,9 @@ package me.ineson.monitorNbn.shared.entity;
 
 import java.time.LocalDateTime;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "outages")
 public class Outage extends BaseEntity {
 
     private LocalDateTime startTime;

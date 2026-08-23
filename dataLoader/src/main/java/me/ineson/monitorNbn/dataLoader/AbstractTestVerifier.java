@@ -15,8 +15,8 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import me.ineson.monitorNbn.shared.io.TestSection;
 
@@ -26,7 +26,7 @@ import me.ineson.monitorNbn.shared.io.TestSection;
  */
 public abstract class AbstractTestVerifier {
 
-    private static final Logger LOG = LogManager.getLogger(AbstractTestVerifier.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AbstractTestVerifier.class);
     
     private static final Map<String, AbstractTestVerifier> VERIFIERS = createVerifiers();
 

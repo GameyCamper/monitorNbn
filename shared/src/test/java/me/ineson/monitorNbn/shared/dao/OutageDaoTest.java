@@ -3,14 +3,16 @@
  */
 package me.ineson.monitorNbn.shared.dao;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.TemporalUnit;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.function.Consumer;
@@ -74,7 +76,7 @@ class OutageDaoTest {
 		LOG.info("Collections: {}", String.join(",", names));
 		MongoCollection<Document> collection = mongoTemplate.getCollection("Outage");
 		LOG.info("document: {}", collection);
-		LOG.info("document count: {}", collection.count());
+		LOG.info("document count: {}", collection.countDocuments());
 
 		StringBuilder string = new StringBuilder();
 		collection.listIndexes().forEach((Consumer<? super Document>) (Document document) -> {
@@ -97,7 +99,7 @@ class OutageDaoTest {
         // Given: record to save
         Outage outage = new Outage();
 
-        LocalDateTime startTime = LocalDateTime.now();
+        LocalDateTime startTime = LocalDateTime.now().withNano(0);
         LocalDateTime endTime = startTime.plusHours(1);
 
         outage.setNumberOfLines(25);
@@ -114,7 +116,7 @@ class OutageDaoTest {
 
         Outage returnedOutage = searchResultsIterator.next();
         assertNotNull(returnedOutage);
-        assertFalse("Has more than one result", searchResultsIterator.hasNext());
+        assertFalse(searchResultsIterator.hasNext(), "Has more than one result");
         LOG.debug("returnedOutage: {}", returnedOutage);
         assertEquals(Long.valueOf(12345L), returnedOutage.getStartFilePosition());
         assertEquals(Integer.valueOf(25), returnedOutage.getNumberOfLines());
@@ -150,7 +152,7 @@ class OutageDaoTest {
         //     and record can be read from the DB
         Outage returnedRecord =  searchResultsIterator.next();
         assertNotNull(returnedRecord);
-        assertFalse("Has more than one result", searchResultsIterator.hasNext());
+        assertFalse(searchResultsIterator.hasNext(), "Has more than one result");
 
         //     and record contents match.
         assertEquals(Integer.valueOf(512), returnedRecord.getNumberOfLines());
@@ -244,7 +246,7 @@ class OutageDaoTest {
         Iterator<Outage> searchResultsIterator = searchResults.iterator();
         Outage returnedOutage = searchResultsIterator.next();
         assertNotNull(returnedOutage);
-        assertFalse("Has more than one result", searchResultsIterator.hasNext());
+        assertFalse(searchResultsIterator.hasNext(), "Has more than one result");
 
         // and the return record is the first one that was saved.
         LOG.debug("returnedOutage: {}", returnedOutage);
@@ -269,7 +271,7 @@ class OutageDaoTest {
 
         // Then: No records are found.
         assertNotNull(searchResults);
-        assertFalse("Has more than one result", searchResults.iterator().hasNext());
+        assertFalse(searchResults.iterator().hasNext(), "Has more than one result");
     }
 
     @Test
@@ -303,7 +305,7 @@ class OutageDaoTest {
         Iterator<Outage> searchResultsIterator = searchResults.iterator();
         Outage returnedOutage = searchResultsIterator.next();
         assertNotNull(returnedOutage);
-        assertFalse("Has more than one result", searchResultsIterator.hasNext());
+        assertFalse(searchResultsIterator.hasNext(), "Has more than one result");
         assertEquals(Integer.valueOf(1), returnedOutage.getNumberOfLines());
     }
 
@@ -329,7 +331,7 @@ class OutageDaoTest {
         // Then: The saved record is found.
         Iterable<Outage> searchResults = dao.findAll();
         assertNotNull(searchResults);
-        assertTrue("Has a result", searchResults.iterator().hasNext());
+        assertTrue(searchResults.iterator().hasNext(), "Has a result");
     }
 
 
@@ -413,7 +415,7 @@ class OutageDaoTest {
         // Then: The saved record is found.
         Iterable<Outage> searchResults = dao.findAll();
         assertNotNull(searchResults);
-        assertFalse("No results are found", searchResults.iterator().hasNext());
+        assertFalse(searchResults.iterator().hasNext(), "No results are found");
 	}
 
 }

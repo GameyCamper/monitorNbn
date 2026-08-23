@@ -9,8 +9,9 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.commons.lang3.Strings;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import me.ineson.monitorNbn.shared.GeneralUtils;
 import me.ineson.monitorNbn.shared.io.TestSection;
@@ -22,7 +23,7 @@ import me.ineson.monitorNbn.shared.io.TestSection;
  */
 public class TestVerifierFormatVersion001 extends AbstractTestVerifier {
 
-    private static final Logger LOG = LogManager.getLogger(TestVerifierFormatVersion001.class);
+    private static final Logger LOG = LoggerFactory.getLogger(TestVerifierFormatVersion001.class);
 	
     public TestSectionOutcome getTestOutcome( TestSection testSection) {
         TestSectionOutcome outcome = new TestSectionOutcome();
@@ -44,7 +45,7 @@ public class TestVerifierFormatVersion001 extends AbstractTestVerifier {
                 }
             }
 			
-            if (StringUtils.startsWith(line, START_TEST)) {
+            if (Strings.CS.startsWith(line, START_TEST)) {
             	individualTest = new ArrayList<String>();
             	individualTests.add(individualTest);
             }

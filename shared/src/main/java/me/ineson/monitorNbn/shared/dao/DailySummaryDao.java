@@ -8,10 +8,10 @@ import static com.mongodb.client.model.Filters.eq;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.bson.Document;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -28,7 +28,7 @@ import me.ineson.monitorNbn.shared.entity.DailySummary;
  */
 public class DailySummaryDao {
 
-    private static final Logger LOG = LogManager.getLogger(DailySummaryDao.class);
+    private static final Logger LOG = LoggerFactory.getLogger(DailySummaryDao.class);
 
     final static String COLLECTION_NAME = DailySummary.class.getSimpleName();;
 
@@ -73,7 +73,7 @@ public class DailySummaryDao {
 
 	public long deleteAll() {
 		MongoCollection<DailySummary>collection = createCollection(); 
-		long count = collection.count();
+		long count = collection.countDocuments();
 		collection.drop();
 		return count;
 	}

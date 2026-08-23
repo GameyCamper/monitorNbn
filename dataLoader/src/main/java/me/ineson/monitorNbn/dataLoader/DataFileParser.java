@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import me.ineson.monitorNbn.shared.dao.DailySummaryDao;
 import me.ineson.monitorNbn.shared.dao.OutageDao;
@@ -24,7 +24,7 @@ import me.ineson.monitorNbn.shared.io.TestSection;
  */
 public class DataFileParser {
 
-    private static final Logger LOG = LogManager.getLogger(DataFileParser.class);
+    private static final Logger LOG = LoggerFactory.getLogger(DataFileParser.class);
 
     private DailySummaryDao dailySummaryDao;
 

@@ -10,15 +10,14 @@ import java.io.IOException;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.apache.commons.cli.help.HelpFormatter;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import jline.internal.Log;
 import me.ineson.monitorNbn.shared.dao.DailySummaryDao;
 import me.ineson.monitorNbn.shared.dao.DatasourceManager;
 import me.ineson.monitorNbn.shared.dao.OutageDao;
@@ -29,7 +28,7 @@ import me.ineson.monitorNbn.shared.dao.OutageDao;
  */
 public class DataLoader {
 
-    private static final Logger log = LogManager.getLogger(DataLoader.class);
+    private static final Logger log = LoggerFactory.getLogger(DataLoader.class);
     
 	private static final String OPTTON_HELP = "h";
 
@@ -51,26 +50,26 @@ public class DataLoader {
 		options.addOption( Option.builder( OPTTON_HELP)
 				.longOpt( "help")
 				.desc( "print this message")
-				.build());
+				.get());
         options.addOption( Option.builder( OPTTON_DATAFILE)
         		.required()
         		.longOpt( "file")
         		.desc( "The data file to be loaded into the database")
         		.hasArg()
-        		.build());
+        		.get());
         options.addOption( Option.builder( OPTTON_WIPE)
         		.longOpt( "wipe")
         		.desc( "Wipe the ALL existing data from the database")
-        		.build());
+        		.get());
         options.addOption( Option.builder( OPTTON_TAIL)
         		.longOpt("tail")
         		.desc("Tails the datafile adding new data to the datadase as and when added to the file")
-        		.build());
+        		.get());
         options.addOption( Option.builder(OPTTON_DATABASE_URI)
         		.longOpt("uri")
         		.desc("The URI to the mongoDB database, e.g. something like mongodb://username:password@localhost:27017")
         		.hasArg()
-        		.build());
+        		.get());
 		
 	    // create the parser
 	    CommandLineParser parser = new DefaultParser();
@@ -79,11 +78,16 @@ public class DataLoader {
 	        CommandLine line = parser.parse( options, args);
 	        
 	        if( line.hasOption(OPTTON_HELP)) {
-	        	HelpFormatter formatter = new HelpFormatter();
-	        	formatter.printHelp( "DataLoader", options );
+	        	HelpFormatter formatter = HelpFormatter.builder().get();
+	        	formatter.printHelp(
+	        			"dataLoader",
+	        			"Load a day of nbn testing results.", 
+	        			options,
+	        			"Ware Spandex",
+	        			true);
 	        } else {
 	        	final String url = line.getOptionValue(OPTTON_DATABASE_URI);
-	        	Log.info("URI = " + url);
+	        	log.info("URI = " + url);
 	        	final DatasourceManager datasourceManager = StringUtils.isBlank(url) ? new DatasourceManager() : new DatasourceManager(url);
 	        	final DailySummaryDao dailySummaryDao = new DailySummaryDao(datasourceManager.getDatabase());
 	        	final OutageDao outageDao = new OutageDao(datasourceManager.getDatabase());

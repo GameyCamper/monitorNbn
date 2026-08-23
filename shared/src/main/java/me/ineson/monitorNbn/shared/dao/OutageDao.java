@@ -10,10 +10,10 @@ import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.Objects;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.bson.Document;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -30,7 +30,7 @@ import me.ineson.monitorNbn.shared.entity.Outage;
  */
 public class OutageDao {
 
-    private static final Logger LOG = LogManager.getLogger(OutageDao.class);
+    private static final Logger LOG = LoggerFactory.getLogger(OutageDao.class);
 
     final static String COLLECTION_NAME = Outage.class.getSimpleName();;
 
@@ -81,7 +81,7 @@ public class OutageDao {
 
 	public long deleteAll() {
 		MongoCollection<Outage>collection = createCollection(); 
-		long count = collection.count();
+		long count = collection.countDocuments();
 		collection.drop();
 		return count;
 	}

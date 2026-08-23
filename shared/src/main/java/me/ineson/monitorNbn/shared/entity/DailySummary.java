@@ -1,8 +1,9 @@
 package me.ineson.monitorNbn.shared.entity;
 
 import java.time.LocalDate;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-
+@Document(collection = "dailySummaries")
 public final class DailySummary extends BaseEntity {
 
 	private LocalDate date;

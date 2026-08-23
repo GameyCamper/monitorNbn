@@ -1,6 +1,6 @@
 application:
-    version: ${version}
-    buildTimeStamp: ${buildTimeStamp}
+    version: ${version ?: 'unknown'}
+    buildTimeStamp: ${buildTimeStamp ?: 'unknown'}
 mongoDb:
     url: mongodb://ws1:27017
 ---

@@ -8,6 +8,7 @@ import java.util.Objects;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 
 /**
  * Set of helpful utilities.
@@ -49,12 +50,10 @@ public final class GeneralUtils {
 			return false;
 		}
 
-		String matched = strings.stream()
-				.filter(line -> line != null && StringUtils.indexOfIgnoreCase(line, searchString) != StringUtils.INDEX_NOT_FOUND)
+		return strings.stream()
+				.filter(line -> line != null && Strings.CI.indexOf(line, searchString) != StringUtils.INDEX_NOT_FOUND)
 				.findAny()
-				.orElse(null);
-
-		return StringUtils.isNotBlank(matched);
+				.isPresent();
 	}
 
 }

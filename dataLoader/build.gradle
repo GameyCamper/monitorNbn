@@ -4,14 +4,13 @@ plugins {
 
 dependencies {
     implementation project(':shared')   
+	implementation "org.mongodb:mongodb-driver-sync:${mongodbVersion}"
 	
-    implementation 'org.codehaus.groovy:groovy-all:2.5.8'
-    implementation 'commons-cli:commons-cli:1.4'
-    implementation 'org.apache.commons:commons-collections4:4.4'
+    implementation 'org.apache.groovy:groovy'
+    implementation 'commons-cli:commons-cli:1.11.0'
 }
 
 application {
-    mainClassName = 'me.ineson.monitorNbn.dataLoader.DataLoader'
+    mainClass = 'me.ineson.monitorNbn.dataLoader.DataLoader'
 }
-
 
