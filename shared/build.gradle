@@ -14,9 +14,4 @@ dependencies {
     testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo:3.5.3'
     //testImplementation 'org.springframework:spring-context:5.2.6.RELEASE'
     testImplementation( "org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
-	 //{
-        //exclude group: 'junit', module: 'junit'
-        //exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    //}
-
 }
