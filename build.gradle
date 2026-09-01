@@ -1,5 +1,17 @@
 import java.text.SimpleDateFormat
 
+plugins {
+	id "org.sonarqube" version "7.3.1.8318"
+}
+  
+sonar {
+	properties {
+		property "sonar.projectKey", "monitorNbn"
+	    property "sonar.projectName", "monitorNbn"
+	    property "sonar.host.url", "http://devci.ineson.home/sonarQube"
+	}
+}
+  
 allprojects {
     apply plugin: 'java'
 
