@@ -8,7 +8,7 @@ sonar {
 	properties {
 		property "sonar.projectKey", "monitorNbn"
 	    property "sonar.projectName", "monitorNbn"
-		property "sonar.host.url", "http://sonarqube-sonarqube.devops-tools.svc.cluster.local:9000"
+		property "sonar.host.url", "http://sonarqube-sonarqube.devops-tools.svc.cluster.local:9000/sonarQube"
 //	    property "sonar.host.url", "http://devci.ineson.home/sonarQube"
 	}
 }
