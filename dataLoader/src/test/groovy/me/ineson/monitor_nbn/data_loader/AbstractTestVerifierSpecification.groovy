@@ -1,7 +1,7 @@
-package me.ineson.monitorNbn.data_loader;
+package me.ineson.monitor_nbn.data_loader;
 
-import me.ineson.monitorNbn.data_loader.AbstractTestVerifier
-import me.ineson.monitorNbn.data_loader.TestVerifierFormatVersion001
+import me.ineson.monitor_nbn.data_loader.AbstractTestVerifier
+import me.ineson.monitor_nbn.data_loader.TestVerifierFormatVersion001
 import spock.lang.*
 
 class AbstractTestVerifierSpecification extends Specification {

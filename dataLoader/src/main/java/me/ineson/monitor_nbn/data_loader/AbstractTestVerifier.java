@@ -1,7 +1,7 @@
 /**
  * 
  */
-package me.ineson.monitorNbn.data_loader;
+package me.ineson.monitor_nbn.data_loader;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
