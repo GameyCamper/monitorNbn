@@ -1,4 +1,4 @@
-package me.ineson.monitorNbn.service;
+package me.ineson.monitor_nbn.service;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -10,7 +10,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import me.ineson.monitorNbn.shared.entity.DailySummary;
+import me.ineson.monitor_nbn.service.DailySummaryService;
+import me.ineson.monitor_nbn.shared.entity.DailySummary;
 
 @Service
 public class DailySummaryService {

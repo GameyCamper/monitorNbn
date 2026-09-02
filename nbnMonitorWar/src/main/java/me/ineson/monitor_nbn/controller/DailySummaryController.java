@@ -1,7 +1,7 @@
 /**
  * 
  */
-package me.ineson.monitorNbn.controller;
+package me.ineson.monitor_nbn.controller;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -13,9 +13,9 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 
-import me.ineson.monitorNbn.service.DailySummaryService;
-import me.ineson.monitorNbn.shared.dao.DailySummaryDao;
-import me.ineson.monitorNbn.shared.entity.DailySummary;
+import me.ineson.monitor_nbn.service.DailySummaryService;
+import me.ineson.monitor_nbn.shared.dao.DailySummaryDao;
+import me.ineson.monitor_nbn.shared.entity.DailySummary;
 
 /**
  * @author peter

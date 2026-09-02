@@ -1,7 +1,9 @@
-package me.ineson.monitorNbn.service;
+package me.ineson.monitor_nbn.service;
 
-import me.ineson.monitorNbn.shared.entity.DailySummary
-import me.ineson.monitorNbn.thymeleaf.UtilitiesExpression
+import me.ineson.monitor_nbn.service.DailySummaryService
+import me.ineson.monitor_nbn.shared.entity.DailySummary
+import me.ineson.monitor_nbn.thymeleaf.UtilitiesExpression
+
 import java.time.Duration
 import spock.lang.*
 

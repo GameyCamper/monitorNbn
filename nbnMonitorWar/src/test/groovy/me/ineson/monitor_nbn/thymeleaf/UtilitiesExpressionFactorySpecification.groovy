@@ -1,5 +1,8 @@
-package me.ineson.monitorNbn.thymeleaf;
+package me.ineson.monitor_nbn.thymeleaf;
 
+import me.ineson.monitor_nbn.thymeleaf.UtilitiesDialect
+import me.ineson.monitor_nbn.thymeleaf.UtilitiesExpression
+import me.ineson.monitor_nbn.thymeleaf.UtilitiesExpressionFactory
 import spock.lang.*
 
 class UtilitiesExpressionFactorySpecification extends Specification {

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package me.ineson.monitorNbn.controller;
+package me.ineson.monitor_nbn.controller;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -21,12 +21,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import me.ineson.monitorNbn.service.DailySummaryService;
-import me.ineson.monitorNbn.shared.dao.DailySummaryDao;
-import me.ineson.monitorNbn.shared.dao.OutageDao;
-import me.ineson.monitorNbn.shared.entity.DailySummary;
-import me.ineson.monitorNbn.shared.entity.Outage;
-import me.ineson.monitorNbn.shared.io.FileReader;
+import me.ineson.monitor_nbn.service.DailySummaryService;
+import me.ineson.monitor_nbn.shared.dao.DailySummaryDao;
+import me.ineson.monitor_nbn.shared.dao.OutageDao;
+import me.ineson.monitor_nbn.shared.entity.DailySummary;
+import me.ineson.monitor_nbn.shared.entity.Outage;
+import me.ineson.monitor_nbn.shared.io.FileReader;
 
 /**
  * @author peter

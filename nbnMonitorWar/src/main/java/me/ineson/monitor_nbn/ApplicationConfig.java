@@ -1,4 +1,4 @@
-package me.ineson.monitorNbn;
+package me.ineson.monitor_nbn;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,10 +11,10 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
-import me.ineson.monitorNbn.shared.dao.DailySummaryDao;
-import me.ineson.monitorNbn.shared.dao.DatasourceManager;
-import me.ineson.monitorNbn.shared.dao.OutageDao;
-import me.ineson.monitorNbn.thymeleaf.UtilitiesDialect;
+import me.ineson.monitor_nbn.shared.dao.DailySummaryDao;
+import me.ineson.monitor_nbn.shared.dao.DatasourceManager;
+import me.ineson.monitor_nbn.shared.dao.OutageDao;
+import me.ineson.monitor_nbn.thymeleaf.UtilitiesDialect;
 
 @Configuration
 @EnableScheduling

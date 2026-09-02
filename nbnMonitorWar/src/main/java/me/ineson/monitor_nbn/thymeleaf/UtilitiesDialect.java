@@ -1,4 +1,4 @@
-package me.ineson.monitorNbn.thymeleaf;
+package me.ineson.monitor_nbn.thymeleaf;
 
 import org.thymeleaf.dialect.AbstractDialect;
 import org.thymeleaf.dialect.IExpressionObjectDialect;

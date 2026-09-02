@@ -1,8 +1,8 @@
-package me.ineson.monitorNbn.model;
+package me.ineson.monitor_nbn.model;
 
 import java.time.Duration;
 
-import me.ineson.monitorNbn.shared.entity.Outage;
+import me.ineson.monitor_nbn.shared.entity.Outage;
 
 public class OutageResults {
 

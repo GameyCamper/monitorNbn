@@ -1,4 +1,4 @@
-package me.ineson.monitorNbn.thymeleaf;
+package me.ineson.monitor_nbn.thymeleaf;
 
 import java.util.Arrays;
 import java.util.Collections;

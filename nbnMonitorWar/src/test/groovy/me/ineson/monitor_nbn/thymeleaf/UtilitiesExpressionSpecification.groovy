@@ -1,7 +1,8 @@
-package me.ineson.monitorNbn.thymeleaf;
+package me.ineson.monitor_nbn.thymeleaf;
 
-import me.ineson.monitorNbn.thymeleaf.UtilitiesExpression
 import java.time.Duration
+
+import me.ineson.monitor_nbn.thymeleaf.UtilitiesExpression
 import spock.lang.*
 
 class UtilitiesExpressionSpecification extends Specification {
