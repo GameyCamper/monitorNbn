@@ -18,7 +18,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import me.ineson.monitorNbn.shared.io.TestSection;
+import me.ineson.monitor_nbn.shared.io.TestSection;
 
 /**
  * @author peter

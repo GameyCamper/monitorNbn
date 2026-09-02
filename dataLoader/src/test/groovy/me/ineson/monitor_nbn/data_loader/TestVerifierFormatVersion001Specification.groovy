@@ -1,10 +1,10 @@
 package me.ineson.monitor_nbn.data_loader;
 
-import me.ineson.monitorNbn.shared.io.FileReader
-import me.ineson.monitorNbn.shared.io.TestSection
 import me.ineson.monitor_nbn.data_loader.AbstractTestVerifier
 import me.ineson.monitor_nbn.data_loader.TestSectionOutcome
 import me.ineson.monitor_nbn.data_loader.TestVerifierFormatVersion001
+import me.ineson.monitor_nbn.shared.io.FileReader
+import me.ineson.monitor_nbn.shared.io.TestSection
 import spock.lang.*
 
 class TestVerifierFormatVersion001Specification extends Specification {

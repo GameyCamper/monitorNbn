@@ -11,12 +11,12 @@ import java.util.Objects;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import me.ineson.monitorNbn.shared.dao.DailySummaryDao;
-import me.ineson.monitorNbn.shared.dao.OutageDao;
-import me.ineson.monitorNbn.shared.entity.DailySummary;
-import me.ineson.monitorNbn.shared.entity.Outage;
-import me.ineson.monitorNbn.shared.io.FileReader;
-import me.ineson.monitorNbn.shared.io.TestSection;
+import me.ineson.monitor_nbn.shared.dao.DailySummaryDao;
+import me.ineson.monitor_nbn.shared.dao.OutageDao;
+import me.ineson.monitor_nbn.shared.entity.DailySummary;
+import me.ineson.monitor_nbn.shared.entity.Outage;
+import me.ineson.monitor_nbn.shared.io.FileReader;
+import me.ineson.monitor_nbn.shared.io.TestSection;
 
 /**
  * @author peter

@@ -13,8 +13,8 @@ import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import me.ineson.monitorNbn.shared.GeneralUtils;
-import me.ineson.monitorNbn.shared.io.TestSection;
+import me.ineson.monitor_nbn.shared.GeneralUtils;
+import me.ineson.monitor_nbn.shared.io.TestSection;
 
 
 /**
