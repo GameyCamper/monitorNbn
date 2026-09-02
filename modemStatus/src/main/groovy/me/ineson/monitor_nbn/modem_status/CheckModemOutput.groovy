@@ -1,6 +1,6 @@
-package me.ineson.monitorNbn.modemStatus
+package me.ineson.monitor_nbn.modem_status
 
-import static me.ineson.monitorNbn.modemStatus.ModemLeds.PHONE_SOS
+import static me.ineson.monitor_nbn.modem_status.ModemLeds.PHONE_SOS
 
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document

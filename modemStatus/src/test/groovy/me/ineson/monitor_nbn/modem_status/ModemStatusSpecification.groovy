@@ -1,9 +1,9 @@
-package me.ineson.monitorNbn.modemStatus;
+package me.ineson.monitor_nbn.modem_status;
 
-import static me.ineson.monitorNbn.modemStatus.ModemLeds.PHONE_SOS
+import static me.ineson.monitor_nbn.modem_status.ModemLeds.PHONE_SOS
 
-import me.ineson.monitorNbn.modemStatus.ModemLeds
-import me.ineson.monitorNbn.modemStatus.ModemStatus
+import me.ineson.monitor_nbn.modem_status.ModemLeds
+import me.ineson.monitor_nbn.modem_status.ModemStatus
 import spock.lang.*
 
 /**

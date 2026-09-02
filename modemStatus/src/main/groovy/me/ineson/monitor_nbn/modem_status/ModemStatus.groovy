@@ -1,4 +1,4 @@
-package me.ineson.monitorNbn.modemStatus
+package me.ineson.monitor_nbn.modem_status
 
 import groovy.transform.CompileStatic
 import groovy.transform.ToString

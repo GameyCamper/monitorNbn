@@ -1,11 +1,11 @@
-package me.ineson.monitorNbn.modemStatus;
+package me.ineson.monitor_nbn.modem_status;
 
-import static me.ineson.monitorNbn.modemStatus.CheckModemOutput.parseHtml as checker
+import static me.ineson.monitor_nbn.modem_status.CheckModemOutput.parseHtml as checker
 
 import java.io.InputStream
 
 import groovy.transform.CompileStatic
-import me.ineson.monitorNbn.modemStatus.ModemStatus
+import me.ineson.monitor_nbn.modem_status.ModemStatus
 import spock.lang.*
 
 class CheckModemOutputSpecification extends Specification {
