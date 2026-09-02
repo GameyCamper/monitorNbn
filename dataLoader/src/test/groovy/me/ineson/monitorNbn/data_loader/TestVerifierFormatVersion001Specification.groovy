@@ -1,5 +1,8 @@
-package me.ineson.monitorNbn.dataLoader;
+package me.ineson.monitorNbn.data_loader;
 
+import me.ineson.monitorNbn.data_loader.AbstractTestVerifier
+import me.ineson.monitorNbn.data_loader.TestSectionOutcome
+import me.ineson.monitorNbn.data_loader.TestVerifierFormatVersion001
 import me.ineson.monitorNbn.shared.io.FileReader
 import me.ineson.monitorNbn.shared.io.TestSection
 import spock.lang.*
@@ -12,7 +15,7 @@ class TestVerifierFormatVersion001Specification extends Specification {
 		
         given:
             URL testFile = Thread.currentThread().getContextClassLoader()
-                .getResource( "me/ineson/monitorNbn/dataLoader/fileFormat/v001/" + testfile);
+                .getResource( "me/ineson/monitorNbn/data_loader/fileFormat/v001/" + testfile);
             FileReader fileReader = new FileReader( new File( testFile.getFile()));
 			TestSection testSection = fileReader.getNextTestSection();
 			

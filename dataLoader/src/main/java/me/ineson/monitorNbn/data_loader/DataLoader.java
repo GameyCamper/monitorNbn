@@ -1,7 +1,7 @@
 /**
  * 
  */
-package me.ineson.monitorNbn.dataLoader;
+package me.ineson.monitorNbn.data_loader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
