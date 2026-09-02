@@ -1,7 +1,7 @@
 /**
  * 
  */
-package me.ineson.monitorNbn.shared.dao;
+package me.ineson.monitor_nbn.shared.dao;
 
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

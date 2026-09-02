@@ -1,7 +1,7 @@
 /**
  * 
  */
-package me.ineson.monitorNbn.shared;
+package me.ineson.monitor_nbn.shared;
 
 import java.util.List;
 import java.util.Objects;

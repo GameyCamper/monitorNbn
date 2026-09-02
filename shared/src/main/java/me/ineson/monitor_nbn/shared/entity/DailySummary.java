@@ -1,4 +1,4 @@
-package me.ineson.monitorNbn.shared.entity;
+package me.ineson.monitor_nbn.shared.entity;
 
 import java.time.LocalDate;
 import org.springframework.data.mongodb.core.mapping.Document;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package me.ineson.monitorNbn.shared.dao;
+package me.ineson.monitor_nbn.shared.dao;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -33,7 +33,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.mongodb.client.MongoCollection;
 
-import me.ineson.monitorNbn.shared.entity.Outage;
+import me.ineson.monitor_nbn.shared.dao.DatasourceManager;
+import me.ineson.monitor_nbn.shared.dao.OutageDao;
+import me.ineson.monitor_nbn.shared.entity.Outage;
 
 /**
  * @author peter

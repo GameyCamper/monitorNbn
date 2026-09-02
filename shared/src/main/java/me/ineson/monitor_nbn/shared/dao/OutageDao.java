@@ -1,7 +1,7 @@
 /**
  * 
  */
-package me.ineson.monitorNbn.shared.dao;
+package me.ineson.monitor_nbn.shared.dao;
 
 import static com.mongodb.client.model.Filters.eq;
 
@@ -22,7 +22,7 @@ import com.mongodb.client.model.IndexOptions;
 import com.mongodb.client.model.Indexes;
 import com.mongodb.client.model.Sorts;
 
-import me.ineson.monitorNbn.shared.entity.Outage;
+import me.ineson.monitor_nbn.shared.entity.Outage;
 
 /**
  * @author peter

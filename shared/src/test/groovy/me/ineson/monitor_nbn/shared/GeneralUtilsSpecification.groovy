@@ -1,6 +1,6 @@
-package me.ineson.monitorNbn.shared;
+package me.ineson.monitor_nbn.shared;
 
-import me.ineson.monitorNbn.shared.GeneralUtils
+import me.ineson.monitor_nbn.shared.GeneralUtils
 import spock.lang.*
 
 class GeneralUtilsSpecification extends Specification {

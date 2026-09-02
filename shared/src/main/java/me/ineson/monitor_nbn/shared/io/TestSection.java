@@ -1,4 +1,4 @@
-package me.ineson.monitorNbn.shared.io;
+package me.ineson.monitor_nbn.shared.io;
 
 import java.util.List;
 import java.util.Objects;

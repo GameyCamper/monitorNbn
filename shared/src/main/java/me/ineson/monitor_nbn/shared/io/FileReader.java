@@ -1,7 +1,7 @@
 /**
  * 
  */
-package me.ineson.monitorNbn.shared.io;
+package me.ineson.monitor_nbn.shared.io;
 
 import java.io.Closeable;
 import java.io.File;
