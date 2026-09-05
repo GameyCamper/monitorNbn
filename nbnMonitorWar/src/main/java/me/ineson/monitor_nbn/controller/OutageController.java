@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
@@ -161,7 +162,7 @@ public class OutageController {
 		    model.put("outageData", dayOutageData);
 
 		    LocalDateTime daySpan = date.atStartOfDay();
-		    ZoneOffset zoneOffset = ZoneOffset.systemDefault().getRules().getOffset(daySpan);
+		    ZoneOffset zoneOffset = ZoneId.systemDefault().getRules().getOffset(daySpan);
 
 		    int day = daySpan.getDayOfYear();
 		    long outageStartTime = -1L;
@@ -203,7 +204,7 @@ public class OutageController {
 
 		    Map<String, Object>outageData = new HashMap<String, Object>();
 		    dayOutageData.add(outageData);
-			outageData.put("t", daySpan.toEpochSecond(ZoneOffset.systemDefault().getRules().getOffset(daySpan)) * 1000L);
+			outageData.put("t", daySpan.toEpochSecond(ZoneId.systemDefault().getRules().getOffset(daySpan)) * 1000L);
 		    
 			LOG.info("EndOfDay: {}", daySpan);
 	    }
