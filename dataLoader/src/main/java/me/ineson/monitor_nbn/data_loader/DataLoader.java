@@ -87,7 +87,7 @@ public class DataLoader {
 	        			true);
 	        } else {
 	        	final String url = line.getOptionValue(OPTTON_DATABASE_URI);
-	        	log.info("URI = " + url);
+	        	log.info("URI = {}", url);
 	        	final DatasourceManager datasourceManager = StringUtils.isBlank(url) ? new DatasourceManager() : new DatasourceManager(url);
 	        	final DailySummaryDao dailySummaryDao = new DailySummaryDao(datasourceManager.getDatabase());
 	        	final OutageDao outageDao = new OutageDao(datasourceManager.getDatabase());
