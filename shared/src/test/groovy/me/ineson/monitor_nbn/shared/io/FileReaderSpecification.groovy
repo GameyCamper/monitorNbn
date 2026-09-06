@@ -126,7 +126,7 @@ class FileReaderSpecification extends Specification {
 		given:
 			URL testFile = Thread.currentThread().getContextClassLoader()
 				.getResource( "me/ineson/monitor_nbn/shared/io/fileReader_lineRead.dat");
-			FileReader fileReader = new FileReader( new File( testFile.getFile()));
+			FileReader fileReader = new FileReader( new File( testFile.getFile()), false);
 			  
 		when:
 			fileReader.seek(4L);
@@ -158,6 +158,37 @@ class FileReaderSpecification extends Specification {
 
 		then:
 			lines == [ "44", "55", "66"];
+
+		cleanup:
+			if( ! Objects.isNull( fileReader)) {
+				fileReader.close();
+			}
+	
+	}
+
+	def "test close() can be called multiple time with an exceptions being raised"() {
+		expect:
+			URL testFile = Thread.currentThread().getContextClassLoader()
+				.getResource( "me/ineson/monitor_nbn/shared/io/fileReader_lineRead.dat");
+			FileReader fileReader = new FileReader( new File( testFile.getFile()));
+			fileReader.close();
+			fileReader.close();
+	}
+
+	
+	def "test seek and timeout set then getLine success"() {
+		given:
+			URL testFile = Thread.currentThread().getContextClassLoader()
+				.getResource( "me/ineson/monitor_nbn/shared/io/fileReader_lineRead.dat");
+			FileReader fileReader = new FileReader( new File( testFile.getFile()), true);
+			  
+		when:
+			fileReader.seek(4L);
+			String line = fileReader.getLine();
+		   
+
+		then:
+		    line == "22"
 
 		cleanup:
 			if( ! Objects.isNull( fileReader)) {
