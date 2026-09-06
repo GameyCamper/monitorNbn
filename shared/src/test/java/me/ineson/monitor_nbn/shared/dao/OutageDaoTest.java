@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.temporal.TemporalUnit;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.function.Consumer;
@@ -24,17 +23,13 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.mongodb.client.MongoCollection;
 
-import me.ineson.monitor_nbn.shared.dao.DatasourceManager;
-import me.ineson.monitor_nbn.shared.dao.OutageDao;
 import me.ineson.monitor_nbn.shared.entity.Outage;
 
 /**
@@ -42,7 +37,6 @@ import me.ineson.monitor_nbn.shared.entity.Outage;
  *
  */
 @DataMongoTest
-@ExtendWith(SpringExtension.class)
 class OutageDaoTest {
 
 	private static final Logger LOG = LogManager.getLogger(OutageDaoTest.class);

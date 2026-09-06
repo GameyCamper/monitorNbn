@@ -22,17 +22,13 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.mongodb.client.MongoCollection;
 
-import me.ineson.monitor_nbn.shared.dao.DailySummaryDao;
-import me.ineson.monitor_nbn.shared.dao.DatasourceManager;
 import me.ineson.monitor_nbn.shared.entity.DailySummary;
 
 /**
@@ -40,7 +36,6 @@ import me.ineson.monitor_nbn.shared.entity.DailySummary;
  *
  */
 @DataMongoTest
-@ExtendWith(SpringExtension.class)
 class DailySummaryDaoTest {
 
     private static final Logger LOG = LogManager.getLogger(DailySummaryDaoTest.class);

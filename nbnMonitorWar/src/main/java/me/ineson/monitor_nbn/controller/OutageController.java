@@ -3,6 +3,9 @@
  */
 package me.ineson.monitor_nbn.controller;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,6 +14,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -74,13 +78,13 @@ public class OutageController {
 		lastOutage.setOutageCount(0);
     	
     	DailySummary dailySummary = dailySummaryDao.findByDate(today);
-    	if( Objects.nonNull(dailySummary)) {
+    	if (nonNull(dailySummary)) {
     		
             lastOutage.setOutageCount(dailySummary.getOutageCount());
             lastOutage.setFailedTestCount(dailySummary.getFailedTestCount());
             lastOutage.setTestCount(dailySummary.getTestCount());
             
-    		if(Objects.nonNull(dailySummary.getOutageCount())
+    		if (nonNull(dailySummary.getOutageCount())
         			&& dailySummary.getOutageCount().intValue() > 0) {
                 lastOutage.setOutage(outageDao.findLatestForDate(today));
     		}
@@ -113,7 +117,7 @@ public class OutageController {
         HttpServletResponse response) {
 
 	    DailySummary dailySummary = dailySummaryDao.findByDate(date);
-	    if(Objects.isNull(dailySummary)) {
+	    if (isNull(dailySummary)) {
             throw new IllegalStateException("Found dailySummary for " + date);
 	    }
 
@@ -153,8 +157,10 @@ public class OutageController {
 			    outageResults.add(outageResult);
 				
 			    outageResult.setOutage(outage);
-			    if(Objects.nonNull(outage.getStartTime()) && Objects.nonNull(outage.getEndTime())) {
-			    	outageResult.setDuration(Duration.between(outage.getStartTime(), outage.getEndTime()));
+			    if(nonNull(outage.getStartTime()) && nonNull(outage.getEndTime())) {
+			    	ZonedDateTime startTime = outage.getStartTime().atZone(ZoneId.systemDefault());
+			    	ZonedDateTime endTime = outage.getEndTime().atZone(ZoneId.systemDefault());
+			    	outageResult.setDuration(Duration.between(startTime, endTime));
 			    }
 			}
 
@@ -173,7 +179,7 @@ public class OutageController {
 		    while(daySpan.getDayOfYear() == day) {
 			    while (outageStartTime == -1 && outageIterator.hasNext() ) {
 			    	outage = outageIterator.next();
-					if (Objects.nonNull(outage.getStartTime()) && Objects.nonNull(outage.getEndTime())) {
+					if (nonNull(outage.getStartTime()) && nonNull(outage.getEndTime())) {
 						outageStartTime = outage.getStartTime().truncatedTo(ChronoUnit.MINUTES).getLong(ChronoField.MINUTE_OF_DAY);
 						outageEndTime = outage.getEndTime().truncatedTo(ChronoUnit.MINUTES).plusMinutes(1).get(ChronoField.MINUTE_OF_DAY);
 
