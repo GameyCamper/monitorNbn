@@ -31,11 +31,16 @@ class CheckModemOutputSpecification extends Specification {
 			status.leds.phone == ledPhone
 			
         where:
-            statusPage               | connectionStatus | accessType | connectionType | mode  | ledOnline     | ledWanDsl     | ledMobileMode | ledMobileSignal | ledPhone
-            "connected_via_nbn.html" | "Connected"      | "ETH"      | "IPoE"         | "SIP" | Boolean.TRUE  | Boolean.TRUE  | Boolean.FALSE | Boolean.TRUE    | Boolean.TRUE
-            "connected_via_4G.html"  | "Connected"      | "ETH"      | "Mobile"       | "SIP" | Boolean.TRUE  | Boolean.TRUE  | Boolean.TRUE  | Boolean.TRUE    | Boolean.TRUE
-            "disconnected.html"      | "Disconnected"   | "ETH"      | "IPoE"         | "SIP" | Boolean.TRUE  | Boolean.TRUE  | Boolean.TRUE  | Boolean.TRUE    | Boolean.TRUE
-            "phone_sos.html"         | "Disconnected"   | "ETH"      | "IPoE"         | "SIP" | Boolean.FALSE | Boolean.FALSE | Boolean.FALSE | Boolean.TRUE    | "SOS"
+            statusPage                 | connectionStatus | accessType | connectionType | mode  | ledOnline     | ledWanDsl     | ledMobileMode | ledMobileSignal | ledPhone
+            "connected_via_nbn.html"   | "Connected"      | "ETH"      | "IPoE"         | "SIP" | Boolean.TRUE  | Boolean.TRUE  | Boolean.FALSE | Boolean.TRUE    | Boolean.TRUE
+            "connected_via_4G.html"    | "Connected"      | "ETH"      | "Mobile"       | "SIP" | Boolean.TRUE  | Boolean.TRUE  | Boolean.TRUE  | Boolean.TRUE    | Boolean.TRUE
+            "disconnected.html"        | "Disconnected"   | "ETH"      | "IPoE"         | "SIP" | Boolean.TRUE  | Boolean.TRUE  | Boolean.TRUE  | Boolean.TRUE    | Boolean.TRUE
+            "phone_sos.html"           | "Disconnected"   | "ETH"      | "IPoE"         | "SIP" | Boolean.FALSE | Boolean.FALSE | Boolean.FALSE | Boolean.TRUE    | "SOS"
+            "missing_data.html"        | "Connected"      | null       | null           | null  | Boolean.TRUE  | Boolean.TRUE  | Boolean.FALSE | null            | Boolean.FALSE
+            "empty_html.html"          | null             | null       | null           | null  | null          | null          | null          | null            | null
+            "phone_empty.html"         | null             | null       | null           | null  | null          | null          | null          | null            | null
+            "phone_green_hidden.html"  | null             | null       | null           | null  | null          | null          | null          | null            | Boolean.FALSE
+            "phone_orange_hidden.html" | null             | null       | null           | null  | null          | null          | null          | null            | Boolean.FALSE
     }
 
 }

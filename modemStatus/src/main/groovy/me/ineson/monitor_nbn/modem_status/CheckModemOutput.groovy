@@ -1,5 +1,6 @@
 package me.ineson.monitor_nbn.modem_status
 
+import static java.util.Objects.nonNull
 import static me.ineson.monitor_nbn.modem_status.ModemLeds.PHONE_SOS
 
 import org.jsoup.Jsoup
@@ -54,13 +55,15 @@ class CheckModemOutput {
 		leds.mobileSignal = getLedStatus( document, "MOBILE SIGNAL");
 
 		Element phoneLedStatusElement = document.getElementById("PHONE");
-		Elements divs = phoneLedStatusElement.getElementsByTag("div");
-		if( ! divs.isEmpty()) {
-			Element div = divs.get( 0);
-			if( div.hasClass("orange") && ! div.hasClass("hide")) {
-				leds.phone = PHONE_SOS;
-            } else {
-                leds.phone = Boolean.valueOf( div.hasClass("green") && ! div.hasClass("hide"));
+		if( nonNull(phoneLedStatusElement)) {
+            Elements divs = phoneLedStatusElement.getElementsByTag("div");
+		    if( ! divs.isEmpty()) {
+			    Element div = divs.get( 0);
+			    if( div.hasClass("orange") && ! div.hasClass("hide")) {
+				    leds.phone = PHONE_SOS;
+                } else {
+                    leds.phone = Boolean.valueOf( div.hasClass("green") && ! div.hasClass("hide"));
+                }
 			}
 		}
 		
@@ -69,11 +72,13 @@ class CheckModemOutput {
 	
 	static def Boolean getLedStatus( Document document, String ledId) {
 		Boolean result = null;
-		Element ledStatusElement = document.getElementById(ledId);
-		Elements divs = ledStatusElement.getElementsByTag("div");
-		if( ! divs.isEmpty()) {
-			Element div = divs.get( 0);
-			result = div.hasClass("green") && ! div.hasClass("hide");
+	    Element ledStatusElement = document.getElementById(ledId);
+		if (nonNull(ledStatusElement)) {
+		    Elements divs = ledStatusElement.getElementsByTag("div");
+		    if( ! divs.isEmpty()) {
+			    Element div = divs.get( 0);
+			    result = div.hasClass("green") && ! div.hasClass("hide");
+		    }
 		}
 		
 		return result;
