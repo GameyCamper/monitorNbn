@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+"-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+"https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <!-- Suppress a specific check in a specific file
+    <suppress checks="MagicNumber" files="ColorConversions.java"/>
+    -->
+
+    <!-- Suppress all checks for generated sources or test directories using regex
+    <suppress checks=".*" files="[\\/]generated-sources[\\/]"/>
+    <suppress checks="Javadoc.*" files=".*[\\/]test[\\/].*"/>
+    -->
+
+    <!-- Suppress a check on specific lines of a file
+    <suppress checks="LineLength" files="LegacyClass.java" lines="50-100"/>
+     -->
+</suppressions>
