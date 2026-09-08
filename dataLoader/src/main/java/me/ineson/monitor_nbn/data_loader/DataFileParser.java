@@ -3,6 +3,9 @@
  */
 package me.ineson.monitor_nbn.data_loader;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -41,13 +44,13 @@ public class DataFileParser {
 
             while( true) {
                 TestSection section = reader.getNextTestSection();
-                if( Objects.isNull(section)) {
+                if( isNull(section)) {
                     // If null is returned then hit the EOF.
-                    if( Objects.nonNull(dailySummary)) {
+                    if( nonNull(dailySummary)) {
                         dailySummaryDao.update(dailySummary);
     				}
 
-                    if( Objects.nonNull(outage)) {
+                    if( nonNull(outage)) {
                         outage.setInProgress(null);
                         outageDao.update(outage);
 			        }
@@ -84,7 +87,7 @@ public class DataFileParser {
                 if( !testSuccessful.isTestSuccessful()) {
                     dailySummary.setFailedTestCount(dailySummary.getFailedTestCount().intValue() + 1);
                 	
-                	if(Objects.isNull(outage)) {
+                	if(isNull(outage)) {
                         outageFirstLineNumber = section.getFirstLineNumber();
 
                         outage = new Outage();
@@ -105,7 +108,7 @@ public class DataFileParser {
                     outage.setNumberOfLines(section.getLastLineNumber() - outageFirstLineNumber + 1);
                     outage.setEndTime(testSuccessful.getEndTime());
                 
-                } else if(Objects.nonNull(outage)) {
+                } else if (nonNull(outage)) {
                     outage.setInProgress(null);
                     outageDao.update(outage);
                     outage = null;

@@ -3,6 +3,8 @@
  */
 package me.ineson.monitor_nbn.data_loader;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -88,7 +90,7 @@ public class DataLoader {
 	        } else {
 	        	final String url = line.getOptionValue(OPTTON_DATABASE_URI);
 	        	log.info("URI = {}", url);
-	        	final DatasourceManager datasourceManager = StringUtils.isBlank(url) ? new DatasourceManager() : new DatasourceManager(url);
+	        	final DatasourceManager datasourceManager = isBlank(url) ? new DatasourceManager() : new DatasourceManager(url);
 	        	final DailySummaryDao dailySummaryDao = new DailySummaryDao(datasourceManager.getDatabase());
 	        	final OutageDao outageDao = new OutageDao(datasourceManager.getDatabase());
 
@@ -118,7 +120,7 @@ public class DataLoader {
 	    }
 	    catch( ParseException exp ) {
 	        // oops, something went wrong
-	        System.err.println( "Parsing failed.  Reason: " + exp.getMessage() );
+	        log.error( "Parsing failed.  Reason: " + exp.getMessage() );
 	    }
 	}
 
