@@ -63,6 +63,13 @@ subprojects {
 		ignoreFailures = true
 	}
 
+	tasks.withType(Checkstyle) {
+		reports {
+			xml.required = true
+			html.required = true
+		}
+	}
+
 	codenarc {
 		ignoreFailures = true
 	}
