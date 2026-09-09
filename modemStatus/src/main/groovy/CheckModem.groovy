@@ -1,4 +1,4 @@
-import static me.ineson.monitor_nbn.modem_status.CheckModemOutput.parseHtml as checkModem
+import static me.ineson.monitor_nbn.modem_status.CheckModemOutput.parseHtml as checkModemStatus
 
 import java.io.InputStream
 import java.net.URL
@@ -16,7 +16,7 @@ while (retryAttempts > 0) {
 	
         InputStream modemPage = new URL( modemUrl).newInputStream( [connectTimeout: 10000, readTimeout: 5000]);
 		
-        ModemStatus status = checkModem(modemPage, modemUrl);
+        ModemStatus status = checkModemStatus(modemPage, modemUrl);
         println status
 		retryAttempts = 0
     } catch( Exception e) {
